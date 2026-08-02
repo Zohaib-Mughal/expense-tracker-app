@@ -86,7 +86,7 @@ const Login = () => {
 
   return (
     <AuthLayout
-      title="Welcome Back 👋"
+      title="Welcome Back"
       subtitle="Sign in to continue managing your finances."
     >
       <form
@@ -95,7 +95,7 @@ const Login = () => {
       >
         {serverError && (
           <div className="rounded-xl border border-red-500 bg-red-500/10 p-3 text-sm text-red-300">
-            {serverError}
+            {"Something went wrong"}
           </div>
         )}
 
@@ -104,7 +104,7 @@ const Login = () => {
           label="Email Address"
           type="email"
           name="email"
-          placeholder="john@example.com"
+          placeholder="zohaib@example.com"
           value={formData.email}
           onChange={handleChange}
           error={errors.email}

@@ -118,7 +118,7 @@ const Register = () => {
       >
         {serverError && (
           <div className="rounded-xl border border-red-500 bg-red-500/10 p-3 text-red-300 text-sm">
-            {serverError}
+            {"Something went wrong."}
           </div>
         )}
 
@@ -126,7 +126,7 @@ const Register = () => {
           required
           label="Full Name"
           name="name"
-          placeholder="John Doe"
+          placeholder="Zohaib Munir"
           value={formData.name}
           onChange={handleChange}
           error={errors.name}
@@ -137,7 +137,7 @@ const Register = () => {
           label="Email Address"
           type="email"
           name="email"
-          placeholder="john@example.com"
+          placeholder="zohaib@example.com"
           value={formData.email}
           onChange={handleChange}
           error={errors.email}

@@ -19,7 +19,7 @@ const TransactionHistory = () => {
 
       {transactions.length === 0 ? (
         <p className="text-center text-neutral-600 text-sm py-10">
-          No transactions yet. Add your first record 🚀
+          No transactions yet. Add your first record.
         </p>
       ) : (
         <div className="space-y-4">
