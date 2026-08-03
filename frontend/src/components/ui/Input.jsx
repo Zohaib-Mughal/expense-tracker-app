@@ -67,9 +67,9 @@ const Input = ({
             onClick={() =>
               setShowPassword(!showPassword)
             }
-            className="absolute right-4 top-1/2 -translate-y-1/2 text-zinc-400 hover:text-white transition"
+            className="absolute right-4 top-1/2 -translate-y-1/2 text-zinc-700 hover:text-gray-200 transition"
           >
-            {showPassword ? "🙈" : "👁"}
+            {showPassword ? "Hide" : "Show"}
           </button>
         )}
       </div>
