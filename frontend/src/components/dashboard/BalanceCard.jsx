@@ -2,24 +2,41 @@ import React, { useContext } from "react";
 import { GlobalContext } from "../../Context/GlobalState";
 
 const BalanceCard = () => {
-  const { summary } = useContext(GlobalContext);
+  const { summary, loading } = useContext(GlobalContext);
+
+  // Skeleton UI while loading
+  if (loading) {
+    return (
+      <div className="grid grid-cols-1 gap-4 animate-pulse">
+        {[1, 2, 3].map((index) => (
+          <div
+            key={index}
+            className="p-5 rounded-2xl border border-neutral-800 bg-neutral-900 space-y-3"
+          >
+            <div className="h-3 bg-neutral-800 rounded w-1/4"></div>
+            <div className="h-8 bg-neutral-800 rounded w-1/2"></div>
+          </div>
+        ))}
+      </div>
+    );
+  }
 
   const stats = [
     {
       title: "Balance",
-      value: summary.balance,
+      value: summary?.balance || 0,
       color: "text-white",
       bg: "bg-neutral-900",
     },
     {
       title: "Income",
-      value: summary.income,
+      value: summary?.income || 0,
       color: "text-emerald-400",
       bg: "bg-emerald-500/10",
     },
     {
       title: "Expense",
-      value: summary.expense,
+      value: summary?.expense || 0,
       color: "text-rose-400",
       bg: "bg-rose-500/10",
     },
