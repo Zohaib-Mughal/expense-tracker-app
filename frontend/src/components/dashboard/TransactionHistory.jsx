@@ -1,11 +1,11 @@
-import React, { useContext, useState } from "react";
+import  { useContext, useState } from "react";
 import { GlobalContext } from "../../Context/GlobalState";
 
 const TransactionHistory = () => {
   const { transactions, deleteTransaction, loading } = useContext(GlobalContext);
   const [deleteId, setDeleteId] = useState(null);
 
-  // Skeleton UI matching your exact card structure
+  
   if (loading) {
     return (
       <div className="p-6 rounded-2xl bg-neutral-900 border border-neutral-800">
