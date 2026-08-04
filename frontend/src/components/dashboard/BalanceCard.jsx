@@ -21,22 +21,22 @@ const BalanceCard = () => {
     );
   }
 
-  const stats = [
+const stats = [
     {
       title: "Balance",
-      value: summary?.balance || 0,
+      value: Number(summary?.balance ?? 0),
       color: "text-white",
       bg: "bg-neutral-900",
     },
     {
       title: "Income",
-      value: summary?.income || 0,
+      value: Number(summary?.income ?? 0),
       color: "text-emerald-400",
       bg: "bg-emerald-500/10",
     },
     {
       title: "Expense",
-      value: summary?.expense || 0,
+      value: Number(summary?.expense ?? 0),
       color: "text-rose-400",
       bg: "bg-rose-500/10",
     },
