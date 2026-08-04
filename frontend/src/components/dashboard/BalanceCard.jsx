@@ -4,7 +4,7 @@ import { GlobalContext } from "../../Context/GlobalState";
 const BalanceCard = () => {
   const { summary, loading } = useContext(GlobalContext);
 
-  // Skeleton UI while loading
+  
   if (loading) {
     return (
       <div className="grid grid-cols-1 gap-4 animate-pulse">
