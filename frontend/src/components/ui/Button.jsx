@@ -1,44 +1,15 @@
-const Button = ({
-  children,
-  type = "button",
-  variant = "primary",
-  disabled = false,
-  className = "",
-  ...props
-}) => {
-  const variants = {
-    primary:
-      "bg-blue-600 hover:bg-blue-700 text-white",
-
-    secondary:
-      "bg-zinc-800 hover:bg-zinc-700 text-white",
-
-    danger:
-      "bg-red-600 hover:bg-red-700 text-white",
-
-    success:
-      "bg-emerald-600 hover:bg-emerald-700 text-white",
-  };
-
+const Button = ({ children, disabled, className = "", ...props }) => {
   return (
     <button
-      type={type}
       disabled={disabled}
-      className={`
-        w-full
-        py-3
-        rounded-xl
-        font-medium
-        transition-all
-        duration-200
-        disabled:opacity-50
-        disabled:cursor-not-allowed
-        hover:scale-[1.02]
-        active:scale-100
-        ${variants[variant]}
-        ${className}
-      `}
       {...props}
+      className={`w-full rounded-xl py-3.5 text-sm font-semibold text-white
+        bg-gradient-to-r from-[#2f6ff0] to-[#1a3fb8]
+        shadow-[0_8px_30px_-8px_rgba(31,68,214,0.35)]
+        transition active:scale-[0.98]
+        disabled:opacity-60 disabled:cursor-not-allowed
+        hover:from-[#1d56e0] hover:to-[#0f1f5c]
+        ${className}`}
     >
       {children}
     </button>

@@ -2,15 +2,13 @@ import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 import { GlobalContext } from "../Context/GlobalState";
-
-import AuthLayout from "../layout/AuthLayout";
+import AuthLayout from "../components/layout/AuthLayout";
 
 import Button from "../components/ui/Button";
 import Input from "../components/ui/Input";
 
 const Login = () => {
   const { login } = useContext(GlobalContext);
-
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -19,9 +17,7 @@ const Login = () => {
   });
 
   const [errors, setErrors] = useState({});
-
   const [serverError, setServerError] = useState("");
-
   const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
@@ -54,8 +50,7 @@ const Login = () => {
     }
 
     if (formData.password.length < 6) {
-      newErrors.password =
-        "Password must be at least 6 characters";
+      newErrors.password = "Password must be at least 6 characters";
     }
 
     return newErrors;
@@ -89,18 +84,15 @@ const Login = () => {
       title="Welcome Back"
       subtitle="Sign in to continue managing your finances."
     >
-      <form
-        onSubmit={handleSubmit}
-        className="space-y-5"
-      >
+      <form onSubmit={handleSubmit} className="space-y-5">
         {serverError && (
-          <div className="rounded-xl border border-red-500 bg-red-500/10 p-3 text-sm text-red-300">
+          <div className="rounded-xl border border-red-200 bg-red-50 p-3 text-sm text-red-600">
             {serverError}
           </div>
         )}
 
         <Input
-            required
+          required
           label="Email Address"
           type="email"
           name="email"
@@ -121,19 +113,13 @@ const Login = () => {
           error={errors.password}
         />
 
-        <Button
-          type="submit"
-          disabled={loading}
-        >
+        <Button type="submit" disabled={loading}>
           {loading ? "Signing In..." : "Sign In"}
         </Button>
 
-        <p className="text-center text-sm text-zinc-400">
+        <p className="text-center text-sm text-slate-500">
           Don't have an account?{" "}
-          <Link
-            to="/register"
-            className="font-medium text-blue-500 hover:text-blue-400"
-          >
+          <Link to="/register" className="font-medium text-[#1d56e0] hover:text-[#1a3fb8]">
             Create one
           </Link>
         </p>

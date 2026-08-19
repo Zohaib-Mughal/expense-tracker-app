@@ -1,85 +1,20 @@
-import { useState } from "react";
-
-const Input = ({
-  label,
-  error,
-  type = "text",
-  required = false,
-  className = "",
-  ...props
-}) => {
-  const [showPassword, setShowPassword] = useState(false);
-
-  const isPassword = type === "password";
-
+const Input = ({ label, error, className = "", ...props }) => {
   return (
-    <div className="space-y-2">
-
+    <div className="w-full">
       {label && (
-        <label className="block text-sm font-medium text-zinc-300">
-
+        <label className="block text-sm font-medium text-slate-700 mb-1.5">
           {label}
-
-          {required && (
-            <span className="text-red-500 ml-1">*</span>
-          )}
-
         </label>
       )}
-
-      <div className="relative">
-
-        <input
-          type={
-            isPassword
-              ? showPassword
-                ? "text"
-                : "password"
-              : type
-          }
-          className={`
-            w-full
-            rounded-xl
-            border
-            bg-zinc-950
-            px-4
-            py-3
-            pr-12
-            text-white
-            border-zinc-700
-            placeholder:text-zinc-500
-            transition-all
-            duration-200
-            focus:outline-none
-            focus:ring-2
-            focus:ring-blue-600
-            focus:border-blue-600
-            disabled:opacity-50
-            ${error ? "border-red-500 focus:ring-red-500" : ""}
-            ${className}
-          `}
-          {...props}
-        />
-
-        {isPassword && (
-          <button
-            type="button"
-            onClick={() =>
-              setShowPassword(!showPassword)
-            }
-            className="absolute right-4 top-1/2 -translate-y-1/2 text-zinc-700 hover:text-gray-200 transition"
-          >
-            {showPassword ? "Hide" : "Show"}
-          </button>
-        )}
-      </div>
-
-      {error && (
-        <p className="text-sm text-red-400">
-          {error}
-        </p>
-      )}
-
+      <input
+        {...props}
+        className={`w-full rounded-xl border bg-slate-50 px-4 py-3 text-sm text-slate-900
+          placeholder:text-slate-400 outline-none transition
+          focus:ring-[#2f6ff0]/40 focus:border-[#2f6ff0]
+          ${error ? "border-red-400" : "border-slate-200"}
+          ${className}`}
+      />
+      {error && <p className="mt-1.5 text-xs text-red-500">{error}</p>}
     </div>
   );
 };

@@ -1,26 +1,33 @@
-import Header from "../components/dashboard/Header";
-import BalanceCard from "../components/dashboard/BalanceCard";
-import TransactionForm from "../components/dashboard/TransactionForm";
-import TransactionHistory from "../components/dashboard/TransactionHistory";
+import { useContext } from "react";
+import { GlobalContext } from "../Context/GlobalState";
+
+import AppShell from "../components/layout/AppShell";
+import TopHeader from "../components/dashboard/TopHeader";
+import SummaryCards from "../components/dashboard/SummaryCards";
+import QuickActions from "../components/dashboard/QuickActions";
+import LatestEntries from "../components/dashboard/LatestEntries";
 
 const Dashboard = () => {
+  const { user, summary, transactions } = useContext(GlobalContext);
+
   return (
-    <div className="min-h-screen bg-zinc-950 text-white">
-      <div className="max-w-7xl mx-auto px-6 py-10">
-        <Header />
+    <AppShell>
+      <TopHeader user={user} />
 
-        <main className="grid lg:grid-cols-3 gap-8 mt-8">
-          <div className="space-y-6">
-            <BalanceCard />
-            <TransactionForm />
-          </div>
+      <div className="flex flex-col lg:grid lg:grid-cols-3 lg:gap-6 lg:mt-4">
+        <div className="order-1 lg:order-1 lg:col-span-2">
+          <SummaryCards income={summary.income} expense={summary.expense} balance={summary.balance} />
+        </div>
 
-          <div className="lg:col-span-2">
-            <TransactionHistory />
-          </div>
-        </main>
+        {/* <div className="order-2 lg:order-2 lg:col-span-1 lg:row-span-2">
+          <QuickActions />
+        </div> */}
+
+        <div className="order-3 lg:order-3 lg:col-span-2">
+          <LatestEntries transactions={transactions} />
+        </div>
       </div>
-    </div>
+    </AppShell>
   );
 };
 
