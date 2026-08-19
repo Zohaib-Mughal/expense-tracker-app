@@ -6,7 +6,7 @@ It allows users to securely track income and expenses with authentication and re
 ---
 
 ## 🚀 Live Demo
-    in-future
+    https://expense-tracker-app-pink-gamma.vercel.app/
 
 
 
