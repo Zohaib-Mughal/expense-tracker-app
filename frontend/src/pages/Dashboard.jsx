@@ -6,12 +6,14 @@ import TopHeader from "../components/dashboard/TopHeader";
 import SummaryCards from "../components/dashboard/SummaryCards";
 import QuickActions from "../components/dashboard/QuickActions";
 import LatestEntries from "../components/dashboard/LatestEntries";
+import { Analytics } from "@vercel/analytics/react"
 
 const Dashboard = () => {
   const { user, summary, transactions } = useContext(GlobalContext);
 
   return (
     <AppShell>
+      <Analytics />
       <TopHeader user={user} />
 
       <div className="flex flex-col lg:grid lg:grid-cols-3 lg:gap-6 lg:mt-4">

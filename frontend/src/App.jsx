@@ -7,6 +7,7 @@ import TransactionHistory from "./pages/TransactionHistory";
 import AddTransaction from "./pages/AddTransaction";
 import ProtectedRoute from "./components/ProtectedRoute";
 
+
 function App() {
   return (
     <BrowserRouter>
